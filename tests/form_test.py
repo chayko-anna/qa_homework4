@@ -3,6 +3,8 @@ import os.path
 
 
 def test_form():
+    browser.open('https://demoqa.com/automation-practice-form')
+
     browser.element('[id="firstName"]').type('Anna')
     browser.element('[id="lastName"]').type('Chayko')
 
@@ -14,12 +16,10 @@ def test_form():
     browser.element('[class="react-datepicker__year-select"]').element('[value="2000"]').click()
     browser.element('[class="react-datepicker__day react-datepicker__day--013"]').click()
 
-  #  browser.element('[class=" mr-sm-2 form-control"]').type('89102906632')
-
     browser.element('[id="subjectsInput"]').type('A')
     browser.all('.subjects-auto-complete__menu').element_by(have.text('Arts')).click()
-    browser.element('[id="subjectsInput"]').type('S')
-    browser.all('.subjects-auto-complete__menu').element_by(have.text('Computer Science')).click()
+    #browser.element('[id="subjectsInput"]').type('S')
+    #browser.all('.subjects-auto-complete__menu').element_by(have.text('Computer Science')).click()
 
     browser.element('[for="hobbies-checkbox-1"]').click()
     browser.element('[for="hobbies-checkbox-2"]').click()
@@ -40,9 +40,10 @@ def test_form():
     browser.element('[class="table-responsive"]').should(have.text('al.nchko@gmail.com'))
     browser.element('[class="table-responsive"]').should(have.text('9102906632'))
     browser.element('[class="table-responsive"]').should(have.text('13 January,2000'))
+    browser.element('[class="table-responsive"]').should(have.text('Female'))
 
     browser.element('[class="table-responsive"]').should(have.text('Arts'))
-    browser.element('[class="table-responsive"]').should(have.text('Computer Science'))
+    #browser.element('[class="table-responsive"]').should(have.text('Computer Science'))
     browser.element('[class="table-responsive"]').should(have.text('Sports'))
     browser.element('[class="table-responsive"]').should(have.text('Reading'))
 

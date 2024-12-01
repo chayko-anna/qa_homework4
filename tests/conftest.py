@@ -5,10 +5,11 @@ from selenium import webdriver
 
 @pytest.fixture(scope='function', autouse=True)
 def browser_settings():
-    browser.config.driver_options = webdriver.FirefoxOptions()
+    browser.config.driver_options = webdriver.ChromeOptions()
+    #browser.config.driver_options.page_load_strategy = 'eager'
+    #browser.config.driver_options.add_argument("--headless")
     #browser.config.base_url = "https://demoqa.com"
     browser.driver.maximize_window()
-    browser.open('https://demoqa.com/automation-practice-form')
 
     yield
 
